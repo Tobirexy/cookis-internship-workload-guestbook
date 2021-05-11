@@ -1,0 +1,33 @@
+/* Card styling for desktop */
+.mat-card{
+    margin: 2em;
+    min-width: 50%;
+    max-width: 100%;
+}
+
+/* Card styling for mobile */
+@media screen and (max-width: 600px) {
+    .mat-card{
+        min-width: 80%;
+    }
+}
+
+/* position cards center vertically */
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* position loading spinner the middle of the screen */
+.spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.message{
+    padding-top: 1em;
+}

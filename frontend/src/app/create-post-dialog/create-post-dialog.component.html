@@ -1,0 +1,42 @@
+<div class="dialog">
+    <!-- close dialog icon button -->
+    <button mat-icon-button color="black" aria-label="close icon" (click)="close();" >
+        <mat-icon>close</mat-icon>
+      </button>
+    <h1>Create new Guestbook post</h1>
+    <!-- create new post form -->
+    <form class="form">
+        <mat-form-field class="formfield">
+          <mat-label>Your Name</mat-label>
+          <input matInput class="form-control" #name="ngModel" placeholder="Tobias" type="text" [(ngModel)]="post.name" name="name" maxlength="20" minlength="4" required>
+          <!-- display errors -->
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert">
+
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Name must be at least 4 characters long.
+            </div>
+
+            </div>
+        </mat-form-field>
+        <mat-label class="formfield">Leave a comment</mat-label>
+        <angular-editor class="form-control formfield" #message="ngModel" [config]="editorConfig" [(ngModel)]="post.message" name="message" maxlength="2000" minlength="25" required></angular-editor>
+        <!-- display errors -->
+        <div *ngIf="message.invalid && (message.dirty || message.touched)"
+                class="alert">
+
+            <div *ngIf="message.errors.required">
+                Message is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Message must be at least 25 characters long.
+            </div>
+            </div>
+    </form>
+      <mat-divider class="formfield"></mat-divider>
+      <!-- enable save button when form is valid -->
+      <button mat-raised-button color="primary" class="formfield button" (click)="close();" [disabled]="message.invalid || name.invalid">save post</button>
+</div>

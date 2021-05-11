@@ -1,0 +1,17 @@
+<body>
+  <!-- Toolbar on top -->
+  <mat-toolbar color="primary">
+      <span>Cookis Guestbook Frontend</span>
+      <span class="spacer"></span>
+      <!-- Icon Buttons -->
+      <button mat-icon-button  aria-label="account icon" routerLink="/adminLogin">
+      <mat-icon>account_circle</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="info icon">
+      <mat-icon>info</mat-icon>
+      </button>
+  </mat-toolbar>
+
+  <!-- Router which dynamically displays components based on path -->
+  <router-outlet></router-outlet>
+</body>

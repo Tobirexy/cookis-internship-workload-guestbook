@@ -1,0 +1,8 @@
+
+<!-- display guestbook posts component and add refresh event input -->
+<app-guestbook-posts [refreshPostsSubject]="refreshPostsSubject"></app-guestbook-posts>
+
+<!-- display FAB to create new post -->
+<button mat-fab color="accent" class="fab" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+</button>
