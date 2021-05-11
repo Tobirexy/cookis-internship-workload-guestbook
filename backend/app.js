@@ -14,6 +14,13 @@ app.use(bodyParser.json());
 const cors = require('cors')
 app.use(cors());
 
+//bcrypt for generating password hash
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+//api key used by admins to delete posts
+const superSecretApiKey = "123456";
+
 //get request for all posts
 app.get("/api/posts/", (req, res) => {
 
@@ -46,7 +53,7 @@ app.delete("/api/posts/:id", (req, res) =>{
 
 //post request for saving a new post
 app.post("/api/posts", (req, res) =>{
-    console.log("accessed");
+    console.log("posts accessed");
     sql = "INSERT INTO post (name, message) VALUES(?,?)";
     values = [req.body.name, req.body.message]
     db.run(sql, values, (err) => {
@@ -59,6 +66,40 @@ app.post("/api/posts", (req, res) =>{
         }
     });
 });
+
+//get request for authenticating user and returning api key
+app.get("/api/auth", (req,res) =>{
+
+    username = req.body.username;
+    plainTextPassword = req.body.password;
+
+    // get username from db
+    sql= "SELECT * FROM admin WHERE username = ? LIMIT 1";
+    db.get(sql, username, (err, admin) => {
+        if(err){
+            res.status(400).json({"error": err.message});
+        }
+        else{
+            if(admin == undefined){
+                res.json({"error": "credentials wrong"}); 
+            }
+            else{
+                savedHash = admin.password_hash
+                // compare db hash with password from request
+                bcrypt.compare(plainTextPassword, savedHash, function(err, result){
+                    if(result == true){
+                        res.json({"api-key": superSecretApiKey});
+                    }
+                    else{
+                        res.json({"error": "credentials wrong"});
+                    }
+                });
+            }
+        }
+    });
+});
+
+
 
 //start listeing on specified port
 app.listen(port, () => {
