@@ -68,7 +68,7 @@ app.post("/api/posts", (req, res) =>{
 });
 
 //get request for authenticating user and returning api key
-app.get("/api/auth", (req,res) =>{
+app.post("/api/auth", (req,res) =>{
 
     username = req.body.username;
     plainTextPassword = req.body.password;
@@ -88,7 +88,7 @@ app.get("/api/auth", (req,res) =>{
                 // compare db hash with password from request
                 bcrypt.compare(plainTextPassword, savedHash, function(err, result){
                     if(result == true){
-                        res.json({"api-key": superSecretApiKey});
+                        res.json({"apiKey": superSecretApiKey});
                     }
                     else{
                         res.json({"error": "credentials wrong"});

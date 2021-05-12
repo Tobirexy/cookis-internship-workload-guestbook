@@ -15,6 +15,7 @@ export class GuestbookPostsComponent implements OnInit {
   refreshPostsSubject: Subject<any>;
 
   posts: GuestBookPost[] = [];
+  isLoading: boolean = false;
 
   // add guestbook service
   constructor(private guestbookService: GuestbookService) { }
@@ -31,9 +32,11 @@ export class GuestbookPostsComponent implements OnInit {
 
   //load all posts
   getPosts(): void {
+    this.isLoading = true;
     this.guestbookService.getGuestbookPosts().subscribe(
 
       (resp) => {
+        this.isLoading = false;
         this.posts = resp;
       },
       (err) => {
