@@ -110,5 +110,5 @@ app.post("/api/auth", (req,res) =>{
 
 //start listeing on specified port
 app.listen(port, () => {
-    console.log("Guestbook backend listening at http://localhost:${port}");
+    console.log("Guestbook backend listening at http://localhost:" + port);
 });
