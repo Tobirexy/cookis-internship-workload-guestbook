@@ -40,15 +40,22 @@ app.get("/api/posts/", (req, res) => {
 app.delete("/api/posts/:id", (req, res) =>{
     sql = "DELETE FROM post WHERE id = ?";
     id = req.params.id;
-    db.run(sql, [id], (err) => {
-        //throw http status 400 and return json error message if there is a database error 
-        if(err){
-            res.status(400).json({"error": err.message});
-        }
-        else{
-            res.json({"result": "deleted"});
-        }
-    });
+
+    //validate sent api key 
+    if(req.body.apiKey == superSecretApiKey){
+        db.run(sql, [id], (err) => {
+            //throw http status 400 and return json error message if there is a database error 
+            if(err){
+                res.status(400).json({"error": err.message});
+            }
+            else{
+                res.json({"result": "deleted"});
+            }
+        });
+    }
+    else{
+        res.status(400).json({"error": "wrong or missing api key"});
+    }
 });
 
 //post request for saving a new post
