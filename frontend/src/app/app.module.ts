@@ -23,6 +23,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatGridListModule } from "@angular/material/grid-list";
     GuestbookPostsComponent,
     AdminLoginComponent,
     DashboardComponent,
-    CreatePostDialogComponent
+    CreatePostDialogComponent,
+    InfoDialogComponent
   ],
   imports: [
     BrowserModule,

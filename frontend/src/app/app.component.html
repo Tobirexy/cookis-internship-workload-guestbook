@@ -8,7 +8,7 @@
         <mat-icon>account_circle</mat-icon>
       </button>
       <button mat-stroked-button *ngIf="this.guestbookService.isAuthed()" (click)="this.guestbookService.logout();">log out</button>
-      <button mat-icon-button aria-label="info icon">
+      <button mat-icon-button aria-label="info icon" (click)="openInfoDialog()">
         <mat-icon>info</mat-icon>
       </button>
   </mat-toolbar>
