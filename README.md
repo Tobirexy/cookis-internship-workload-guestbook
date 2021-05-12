@@ -2,12 +2,13 @@
 
 ## Features
 - REST api backend to store guestbook posts with simple authentication and apikey usage for admin requests
-- Angular frontend with Material Design elements
+- Angular frontend with Material Design theme
 - WYSIWYG editor
 - admin login to delete posts
 
 ## Showcase
-![recording](https://user-images.githubusercontent.com/6097749/117973216-65a24b80-b32c-11eb-9d51-bd5ab5f8eec0.gif)
+![showcase](https://user-images.githubusercontent.com/6097749/117975036-8b305480-b32e-11eb-8aa3-84ca9084a218.gif)
+
 
 
 ## Software used
