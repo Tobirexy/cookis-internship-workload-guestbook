@@ -7,6 +7,8 @@
 - admin login to delete posts
 
 ## Showcase
+![recording](https://user-images.githubusercontent.com/6097749/117973216-65a24b80-b32c-11eb-9d51-bd5ab5f8eec0.gif)
+
 
 ## Software used
 
