@@ -42,7 +42,7 @@ app.delete("/api/posts/:id", (req, res) =>{
     id = req.params.id;
 
     //validate sent api key 
-    if(req.body.apiKey == superSecretApiKey){
+    if(req.query.apiKey == superSecretApiKey){
         db.run(sql, [id], (err) => {
             //throw http status 400 and return json error message if there is a database error 
             if(err){

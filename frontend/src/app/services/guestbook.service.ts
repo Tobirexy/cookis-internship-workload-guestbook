@@ -12,7 +12,7 @@ export class GuestbookService {
 
   //is Admin logged in right now
   private adminAuthed: boolean;
-  
+ 
   //add http injectable
   constructor(private http: HttpClient) {}
 
@@ -61,7 +61,7 @@ export class GuestbookService {
 
   //delete post by admin
   deletePost(post: GuestBookPost): Observable<Object>{
-    return this.http.delete(this.backendUrl + 'posts/' + post.id);
+    return this.http.delete(this.backendUrl + 'posts/' + post.id + "?apiKey=" + this.getApiKey());
   }
 
   //log admin out
