@@ -6,10 +6,10 @@
       <!-- display errors -->
       <div *ngIf="username.invalid && (username.dirty || username.touched)"
       class="alert">
-            <div *ngIf="username.errors.required">
+            <div *ngIf="username.errors?.required">
                 Username is required.
             </div>
-            <div *ngIf="username.errors.minlength">
+            <div *ngIf="username.errors?.minlength">
                 Username must be at least 4 characters long.
             </div>
         </div>
@@ -20,10 +20,10 @@
         <!-- display errors -->
         <div *ngIf="password.invalid && (password.dirty || password.touched)"
         class="alert">
-              <div *ngIf="password.errors.required">
+              <div *ngIf="password.errors?.required">
                 Password is required.
               </div>
-              <div *ngIf="password.errors.minlength">
+              <div *ngIf="password.errors?.minlength">
                 Password must be at least 4 characters long.
               </div>
           </div>

@@ -13,10 +13,10 @@
           <div *ngIf="name.invalid && (name.dirty || name.touched)"
                 class="alert">
 
-                <div *ngIf="name.errors.required">
+                <div *ngIf="name.errors?.required">
                     Name is required.
                 </div>
-                <div *ngIf="name.errors.minlength">
+                <div *ngIf="name.errors?.minlength">
                     Name must be at least 4 characters long.
                 </div>
             </div>
@@ -27,10 +27,10 @@
         <div *ngIf="message.invalid && (message.dirty || message.touched)"
                 class="alert">
 
-                <div *ngIf="message.errors.required">
+                <div *ngIf="message.errors?.required">
                     Message is required.
                 </div>
-                <div *ngIf="name.errors.minlength">
+                <div *ngIf="name.errors?.minlength">
                     Message must be at least 25 characters long.
                 </div>
             </div>
