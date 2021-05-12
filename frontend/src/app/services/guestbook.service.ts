@@ -11,7 +11,7 @@ import { GuestBookPost } from '../models/guest-book-post';
 export class GuestbookService {
 
   //is Admin logged in right now
-  isAuthed: boolean;
+  private adminAuthed: boolean;
   
   //add http injectable
   constructor(private http: HttpClient) {}
@@ -29,6 +29,10 @@ export class GuestbookService {
     return this.http.post<GuestBookPost>(this.backendUrl + "posts/", post);
   }
 
+  isAuthed(): boolean{
+    return this.adminAuthed;
+  }
+
   getApiKey(): String {
     return localStorage.getItem("apiKey");
   }
@@ -41,7 +45,7 @@ export class GuestbookService {
           (resp) => {
             if(resp["apiKey"]){
               localStorage.setItem('apiKey', resp["apiKey"]);
-              this.isAuthed = true;
+              this.adminAuthed = true;
               observer.next(true);
             }
             console.log(resp);
@@ -62,7 +66,7 @@ export class GuestbookService {
 
   //log admin out
   logout(): void{
-    this.isAuthed = false;
+    this.adminAuthed = false;
     localStorage.removeItem("apiKey");
   }
 }

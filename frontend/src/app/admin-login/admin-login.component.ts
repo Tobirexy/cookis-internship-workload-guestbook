@@ -24,7 +24,7 @@ export class AdminLoginComponent implements OnInit {
         console.log("ausgeführt");
 
         //clear form if credentials wrong
-        if(!this.guestbookService.isAuthed){
+        if(!this.guestbookService.isAuthed()){
           this.admin = new Admin();
           console.log("wrong")
         }

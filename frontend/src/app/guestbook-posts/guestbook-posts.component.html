@@ -7,7 +7,7 @@
     <mat-card *ngFor="let post of posts">
         <mat-card-title>{{post.name}}</mat-card-title>
         <mat-card-subtitle>{{post.timestamp}}</mat-card-subtitle>
-        <button *ngIf="this.guestbookService.isAuthed" mat-mini-fab color="primary" aria-label="delete button" class="button" (click)="deletePost(post)">
+        <button *ngIf="this.guestbookService.isAuthed()" mat-mini-fab color="primary" aria-label="delete button" class="button" (click)="deletePost(post)">
             <mat-icon>delete</mat-icon>
         </button>
         <mat-divider></mat-divider>
