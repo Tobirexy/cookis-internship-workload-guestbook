@@ -31,3 +31,9 @@
 .message{
     padding-top: 1em;
 }
+
+.button{
+    position:absolute; 
+    top:1em; 
+    right:1em;
+}

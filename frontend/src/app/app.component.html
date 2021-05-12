@@ -4,11 +4,12 @@
       <span>Cookis Guestbook Frontend</span>
       <span class="spacer"></span>
       <!-- Icon Buttons -->
-      <button mat-icon-button  aria-label="account icon" routerLink="/adminLogin">
-      <mat-icon>account_circle</mat-icon>
+      <button mat-icon-button *ngIf="!this.guestbookService.isAuthed" aria-label="account icon" routerLink="/adminLogin">
+        <mat-icon>account_circle</mat-icon>
       </button>
+      <button mat-stroked-button *ngIf="this.guestbookService.isAuthed" (click)="this.guestbookService.logout();">log out</button>
       <button mat-icon-button aria-label="info icon">
-      <mat-icon>info</mat-icon>
+        <mat-icon>info</mat-icon>
       </button>
   </mat-toolbar>
 

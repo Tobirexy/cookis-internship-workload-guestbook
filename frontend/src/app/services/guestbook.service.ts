@@ -35,7 +35,6 @@ export class GuestbookService {
 
   //send credentials to backend and get api key
   authenticateAdmin(admin: Admin): Observable<boolean>{
-
     return new Observable<boolean>(
       (observer) => {
         this.http.post(this.backendUrl + "auth/", admin).subscribe(
@@ -54,5 +53,16 @@ export class GuestbookService {
         );
       }
     );
+  }
+
+  //delete post by admin
+  deletePost(post: GuestBookPost): Observable<Object>{
+    return this.http.delete(this.backendUrl + 'posts/' + post.id);
+  }
+
+  //log admin out
+  logout(): void{
+    this.isAuthed = false;
+    localStorage.removeItem("apiKey");
   }
 }

@@ -22,6 +22,8 @@ import { MatInputModule } from "@angular/material/input";
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatGridListModule } from "@angular/material/grid-list";
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatInputModule,
     AngularEditorModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
